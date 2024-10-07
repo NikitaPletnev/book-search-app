@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
 
 interface Book {
     title: string;
@@ -13,8 +13,11 @@ interface BookTableProps {
 }
 
 const BookTable: React.FC<BookTableProps> = ({ books }) => {
+    
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{
+            height: "calc(100vh - 250px)",
+        }}>
             <Table>
                 <TableHead>
                     <TableRow>

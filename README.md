@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# Book Search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React application for searching books using the Open Library Search API. The app allows users to search for books, view details such as author name, book title, edition count, and first publishing year. The search results are displayed with pagination, and only authenticated users can access the search page.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Search Field**: Users can search for books using the Open Library API.
+- **Live Search**: The search is performed as the user types, with a debounce to avoid overwhelming the server.
+- **Results Table**: Displays author name, book title, edition count, and first publishing year.
+- **Pagination**: Allows users to browse through the search results.
+- **Authentication**: Users must log in to access the search page.
+- **Average Search Duration**: Displays the average duration of API calls for searches.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React**: JavaScript library for building user interfaces.
+- **TypeScript**: A strongly typed programming language that builds on JavaScript.
+- **Material UI**: For UI components and styling.
+- **Axios**: For making HTTP requests to the Open Library API.
+- **React Router**: For routing between pages.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or above)
+- npm (v6 or above) or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/NikitaPletnev/book-search-app.git
+   cd book-search-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install the dependencies:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Start the development server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. Open a browser and navigate to `http://localhost:3000`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. **Login**: Navigate to the login page and enter a username and password to log in.
+2. **Search for Books**: After logging in, use the search field to search for books. Results will be displayed in a table with pagination.
+3. **Logout**: Click the logout button in the header to log out.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **src/components**: Contains reusable components such as `Header` and `BookTable`.
+- **src/contexts**: Contains `AuthContext` for managing authentication state.
+- **src/pages**: Contains main pages like `LoginPage` and `SearchPage`.
+- **src/App.tsx**: Main entry point for routing.
+
+## Authentication
+
+This app uses a simple client-side mock for authentication. The `AuthContext` is used to manage the user's logged-in state. If the user is not authenticated, they will be redirected to the login page.
+
+## API Integration
+
+The app uses the Open Library Search API (`https://openlibrary.org/search.json?q={searchTerm}`) to fetch book information based on the user's query.
+
+## Contact
+
+For any questions or suggestions, feel free to open an issue or submit a pull request.
+

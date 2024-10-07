@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { TextField, Button, Container } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { login } = useAuth();
+    const navigate = useNavigate();
     
     const handleLogin = () => {
         if (username && password) {
             login(username);
+            navigate('/search');
         }
     };
     
@@ -33,7 +36,12 @@ const LoginPage: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 style={{ marginBottom: '10px' }}
             />
-            <Button variant="contained" color="primary" fullWidth onClick={handleLogin}>
+            <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                onClick={handleLogin}
+            >
                 Login
             </Button>
         </Container>
